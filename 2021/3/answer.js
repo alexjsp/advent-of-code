@@ -5,15 +5,6 @@ var data = fs.readFileSync(path.resolve(__dirname, "./input.txt"), 'utf8');
 var numbers = data.toString().split("\n").filter(x => x.length > 0).map(x => x.split(""));
 
 // Part 1
-var totalOnesPerPosition = Array();
-for (var i = 0; i < numbers.length; i++) {
-	var number = numbers[i];
-	for (var j = 0; j < number.length; j++) {
-		var currentValue = totalOnesPerPosition[j] == null ? 0 : totalOnesPerPosition[j];
-		totalOnesPerPosition[j] = currentValue + parseInt(number[j]);
-	}
-}
-
 function mostCommonBitInPosition(numbers, position) {
 	var values = numbers.map(x => x[position]);
 	return values.filter(x => x == "1").length >= numbers.length / 2 ? "1" : "0";
