@@ -35,9 +35,9 @@ console.log("Part 1: " + prioritySum);
 var prioritySum2 = 0;
 for (var i = 0; i < rucksackPairs.length; i+=3) {
     // Merge the sides again 🙃
-    const sack1 = rucksackPairs[i].reduce((accumulator, x) => accumulator.concat(x));
-    const sack2 = rucksackPairs[i+1].reduce((accumulator, x) => accumulator.concat(x));;
-    const sack3 = rucksackPairs[i+2].reduce((accumulator, x) => accumulator.concat(x));;
+    const sack1 = rucksackPairs[i].flat();
+    const sack2 = rucksackPairs[i+1].flat();
+    const sack3 = rucksackPairs[i+2].flat();
     const commonItem = sack1.find(element => {
        return sack2.includes(element) && sack3.includes(element);
     });
