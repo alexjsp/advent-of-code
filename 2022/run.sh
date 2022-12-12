@@ -3,9 +3,10 @@
 day=$1
 
 if ((day > 0 && day < 26)); then
-	script="$day/answer.ts"
+    zeroPaddedDay=$(printf "%02d" $day)
+	script="$zeroPaddedDay/answer.ts"
 	if [ -f $script ]; then
-		cd "$day"
+		cd "$zeroPaddedDay"
 		echo "Running day $day..."
 		echo ""
 		ts-node answer.ts
